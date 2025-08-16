@@ -1,0 +1,23 @@
+kafka:
+  brokers:
+    - "localhost:9092"
+  topic: "logs"
+
+elasticsearch:
+  urls:
+    - "http://localhost:9200"
+  index: "logs"
+  username: ""
+  password: ""
+
+metrics:
+  port: 9090
+  path: "/metrics"
+  retention_days: 15
+
+alerting:
+  rules_path: "alert_rules.json"
+  check_interval: "30s"
+
+dashboard:
+  port: 8080

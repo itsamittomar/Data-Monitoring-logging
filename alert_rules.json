@@ -1,0 +1,47 @@
+[
+  {
+    "name": "HighErrorRate",
+    "query": "rate error_count service=api",
+    "threshold": 10.0,
+    "operator": ">",
+    "duration": "5m",
+    "labels": {
+      "severity": "critical",
+      "team": "backend"
+    },
+    "annotations": {
+      "summary": "High error rate detected",
+      "description": "Error rate is above 10 errors per second for the API service"
+    }
+  },
+  {
+    "name": "HighCPUUsage",
+    "query": "avg cpu_usage",
+    "threshold": 80.0,
+    "operator": ">",
+    "duration": "10m",
+    "labels": {
+      "severity": "warning",
+      "team": "infrastructure"
+    },
+    "annotations": {
+      "summary": "High CPU usage detected",
+      "description": "CPU usage is above 80% for more than 10 minutes"
+    }
+  },
+  {
+    "name": "LowDiskSpace",
+    "query": "min disk_free_percent",
+    "threshold": 10.0,
+    "operator": "<",
+    "duration": "1m",
+    "labels": {
+      "severity": "critical",
+      "team": "infrastructure"
+    },
+    "annotations": {
+      "summary": "Low disk space",
+      "description": "Free disk space is below 10%"
+    }
+  }
+]
